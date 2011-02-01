@@ -1,0 +1,15 @@
+* Remove stream button should be disabled when nothing is selected
+* Implement preferences panel and preference option for autoplay
+* Remove extraneous menu items (mostly done now)
+* Bundle type, creator code, UTI
+* Implement undo/redo for operations:
+	Add stream
+	Remove stream
+	Set playing
+	Set mute
+	Set balance
+	Set volume
+* QTHelper should be a subclass of QTMovie, ideally.
+* Eventually, implement help.
+* Provide for scriptability, if it can be done.
+* Figure out some way to signal to the user if a stream drops out?
