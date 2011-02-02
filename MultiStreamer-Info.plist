@@ -7,18 +7,8 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>plist</string>
-			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string></string>
-			<key>CFBundleTypeName</key>
-			<string>Stream List</string>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>MSsl</string>
-			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSItemContentTypes</key>
@@ -45,19 +35,6 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-	<key>UTExportedTypeDeclarations</key>
-	<array>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>com.apple.plist</string>
-			</array>
-			<key>UTTypeIdentifier</key>
-			<string>com.kurtraschke.multistreamer.streamlist</string>
-			<key>UTTypeTagSpecification</key>
-			<dict/>
-		</dict>
-	</array>
 	<key>CFBundleSignature</key>
 	<string>MSsl</string>
 	<key>CFBundleVersion</key>
@@ -66,5 +43,28 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.apple.plist</string>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Stream List</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.kurtraschke.multistreamer.streamlist</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>com.apple.ostype</key>
+				<string>MSsl</string>
+				<key>public.filename-extension</key>
+				<array>
+					<string>mssl</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>

@@ -13,4 +13,9 @@
 
 }
 
+- (NSDictionary *)fileAttributesToWriteToURL:(NSURL *)absoluteURL
+									  ofType:(NSString *)typeName
+							forSaveOperation:(NSSaveOperationType)saveOperation
+						 originalContentsURL:(NSURL *)absoluteOriginalContentsURL
+									   error:(NSError **)outError;
 @end
