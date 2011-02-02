@@ -87,7 +87,6 @@ script MyDocument
 	end readFromData_ofType_error_
 	
 	on loadSavedData(theData)
-		
 		repeat with theStream in theData
 			set newStream to current application's Stream's alloc()'s init()
 			set theURL to |NSURL|'s URLWithString_(theStream's streamURL)
@@ -116,7 +115,6 @@ script MyDocument
 		end repeat
 	end stopAllStreams_
 	
-	
 	--Make sure there isn't already a stream with that URL
 	on validateURL(theURL)
 		repeat with theStream in theArrayController's arrangedObjects()
@@ -127,7 +125,7 @@ script MyDocument
 		return true
 	end validateURL
 	
-	--Make sure there isn't already a stream with that title
+	--Make sure there isn't already a stream with that name
 	on validateName(theName)
 		repeat with theStream in theArrayController's arrangedObjects()
 			if theName as text is equal to theStream's streamName as text then
@@ -137,13 +135,10 @@ script MyDocument
 		return true
 	end validateName
 	
-	## Show custom sheet; show a window as a sheet over another window
-	-- shows custom sheet addStreamSheet over window mainWindow	
 	on showAddStreamSheet_(sender) -- triggered by button in window
 		tell current application's NSApp to beginSheet_modalForWindow_modalDelegate_didEndSelector_contextInfo_(addStreamSheet, mainWindow, me, "addStreamSheetDidEnd:returnCode:contextInfo:", missing value)
 	end showAddStreamSheet_
 	
-	-- connected to button in addStreamSheet
 	on AddStreamSheetButtonPushed_(sender) -- triggered by button in sheet
 		set returnCode to 0 --  use different numbers for different buttons
 		
@@ -180,18 +175,18 @@ script MyDocument
 		tell current application's NSApp to endSheet_returnCode_(addStreamSheet, returnCode)
 	end AddStreamSheetButtonPushed_
 	
-	-- connected to button in addStreamSheet
-	on AddStreamSheetCancelButtonPushed_(sender) -- triggered by button in sheet
-		set returnCode to 0 --  use different numbers for different buttons
+	on AddStreamSheetCancelButtonPushed_(sender)
+		--if the sheet is cancelled, clear the fields and do nothing more
+		set returnCode to 0
 		nameField's setStringValue_("")
 		addressField's setStringValue_("")
-		-- the following call closes the window and results in AddStreamSheetDidEnd_returnCode_contextInfo_ being called
+		
 		tell current application's NSApp to endSheet_returnCode_(addStreamSheet, returnCode)
 	end AddStreamSheetCancelButtonPushed_
 	
-	-- called when window is closed
 	on AddStreamSheetDidEnd_returnCode_contextInfo_(theSheet, returnCode, unUsed)
-		tell theSheet to orderOut_(me) -- now close the sheet
+		--we have nothing to do but close the sheet
+		tell theSheet to orderOut_(me)
 	end AddStreamSheetDidEnd_returnCode_contextInfo_
 	
 	on deleteStream_(sender)
