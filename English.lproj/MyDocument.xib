@@ -946,14 +946,6 @@
 					<int key="connectionID">100097</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">deleteStream:</string>
-						<reference key="source" ref="512844837"/>
-						<reference key="destination" ref="953755557"/>
-					</object>
-					<int key="connectionID">100099</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">theTableView</string>
 						<reference key="source" ref="512844837"/>
@@ -1109,6 +1101,30 @@
 						</object>
 					</object>
 					<int key="connectionID">100150</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: canRemove</string>
+						<reference key="source" ref="953755557"/>
+						<reference key="destination" ref="834296763"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="953755557"/>
+							<reference key="NSDestination" ref="834296763"/>
+							<string key="NSLabel">enabled: canRemove</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">canRemove</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">100157</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">remove:</string>
+						<reference key="source" ref="834296763"/>
+						<reference key="destination" ref="953755557"/>
+					</object>
+					<int key="connectionID">100158</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1614,7 +1630,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100155</int>
+			<int key="maxID">100158</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
