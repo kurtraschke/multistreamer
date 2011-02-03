@@ -1,4 +1,3 @@
-* Remove stream button should be disabled when nothing is selected
 * Implement preferences panel and preference option for autoplay
 * Remove extraneous menu items (mostly done now)
 * Implement undo/redo for operations:
