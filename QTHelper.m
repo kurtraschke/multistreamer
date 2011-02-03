@@ -24,9 +24,9 @@
 	TimeValue loadedTime = -1;
 	
 	GetMaxLoadedTimeInMovie(theMovie, &loadedTime);
-    TimeScale scale = GetMovieTimeScale(theMovie);
+	TimeScale scale = GetMovieTimeScale(theMovie);
 	TimeValue newTime = loadedTime - (2 * scale);
-	SetMovieTimeValue(theMovie, loadedTime - newTime);
+	SetMovieTimeValue(theMovie, newTime);
 	[qtm play];
 }
 
