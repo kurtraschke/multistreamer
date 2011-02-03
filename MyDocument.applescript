@@ -195,5 +195,21 @@ script MyDocument
 		tell theArrayController to removeObject_(theStream)
 	end deleteStream_
 	
+	on copyStreamURL_(sender)
+		--could use NSPasteboard, but why bother when we have "the clipboard"?
+		set the clipboard to (first item of theArrayController's selectedObjects)'s streamURL as string
+	end copyStreamURL_
+	
+	on validateMenuItem_(menuItem)
+		if menuItem's |tag| as integer is equal to 1 then
+			if theArrayController's selectionIndex as integer is not equal to current application's NSNotFound as integer then
+				return 1
+			else
+				return 0
+			end if
+		else
+			return 1
+		end if
+	end validateMenuItem_
 	
 end script
