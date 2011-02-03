@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="5"/>
+			<integer value="100078"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -506,7 +506,7 @@
 														<int key="NSCellFlags2">0</int>
 														<string key="NSContents"/>
 														<reference key="NSControlView" ref="507732690"/>
-														<double key="NSMaxValue">1</double>
+														<double key="NSMaxValue">2</double>
 														<double key="NSMinValue">0.0</double>
 														<double key="NSValue">1</double>
 														<double key="NSAltIncValue">0.0</double>
@@ -1602,9 +1602,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{325, 354}, {498, 179}}</string>
+					<string>{{325, 355}, {498, 179}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{325, 354}, {498, 179}}</string>
+					<string>{{325, 355}, {498, 179}}</string>
 					<integer value="1"/>
 					<boolean value="YES"/>
 					<string>{{201, 387}, {507, 413}}</string>
@@ -1652,14 +1652,18 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>AddStreamSheetButtonPushed:</string>
 							<string>AddStreamSheetCancelButtonPushed:</string>
+							<string>copyStreamURL:</string>
 							<string>deleteStream:</string>
 							<string>playAllStreams:</string>
 							<string>showAddStreamSheet:</string>
 							<string>stopAllStreams:</string>
+							<string>validateMenuItem:</string>
 							<string>windowControllerDidLoadNib:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1675,10 +1679,12 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>AddStreamSheetButtonPushed:</string>
 							<string>AddStreamSheetCancelButtonPushed:</string>
+							<string>copyStreamURL:</string>
 							<string>deleteStream:</string>
 							<string>playAllStreams:</string>
 							<string>showAddStreamSheet:</string>
 							<string>stopAllStreams:</string>
+							<string>validateMenuItem:</string>
 							<string>windowControllerDidLoadNib:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1689,6 +1695,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">AddStreamSheetCancelButtonPushed:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">copyStreamURL:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -1705,6 +1715,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">stopAllStreams:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">validateMenuItem:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
