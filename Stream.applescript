@@ -6,9 +6,8 @@
 
 
 property |NSURL| : class "NSURL"
-property QTMovie : class "QTMovie"
+property MyQTMovie : class "MyQTMovie"
 property NSNotificationCenter : class "NSNotificationCenter"
-property QTHelper : class "QTHelper"
 property NSTimer : class "NSTimer"
 property NSUserDefaults : class "NSUserDefaults"
 property NSNumber : class "NSNumber"
@@ -36,7 +35,7 @@ script Stream
 	on setupStream__(theURL, theName)
 		set my streamName to theName
 		set my streamURL to theURL's absoluteString()
-		tell current application's QTMovie to set {theMovie, theError} to movieWithURL_error_(theURL, reference)
+		tell current application's MyQTMovie to set {theMovie, theError} to movieWithURL_error_(theURL, reference)
 		
 		if theError is not missing value then
 			--These errors are miserable, but it's better than nothing.
@@ -76,15 +75,14 @@ script Stream
 	
 	on startStream()
 		if my isPlayable is equal to 1 then
-			current application's QTHelper's setMovieToMaxLoadedAndPlay_(my theMovie)
-			--tell my theMovie to |play|()
-			current application's QTHelper's setupMeteringOnMovie_(theMovie)
+			tell my theMovie to setMovieToMaxLoadedAndPlay()
+			tell my theMovie to setupAudioMetering()
 			set my updateLevelTimer to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.1, me, "updateLevel:", "", true)
 		end if
 	end startStream
 	
 	on updateLevel_(theTimer)
-		set my audioLevel to (current application's QTHelper's getLevelForMovie_(my theMovie) as real)
+		set my audioLevel to (theMovie's getAudioLevel() as real)
 	end updateLevel_
 	
 	on setAudioLevel_(theLevel)
@@ -107,7 +105,7 @@ script Stream
 	
 	on setStreamBalance_(theBalance)
 		set streamBalance to theBalance
-		current application's QTHelper's setBalanceOnMovie_toBalance_(my theMovie, my streamBalance as real)
+		tell my theMovie to setBalance_(my streamBalance as real)
 	end setStreamBalance_
 	
 	on setStreamVolume_(theVolume)

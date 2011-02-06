@@ -1,55 +1,58 @@
 //
-//  QTHelper.m
+//  MyQTMovie.m
 //  MultiStreamer
 //
-//  Created by Kurt Raschke on 1/31/11.
+//  Created by Kurt Raschke on 2/5/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "QTHelper.h"
+#import "MyQTMovie.h"
 
 
-@implementation QTHelper
-+ (void)setBalanceOnMovie: (QTMovie *) qtm toBalance: (Float32) balance
+@implementation MyQTMovie
+- (void)setBalance: (Float32) balance
 {
 	//Balance runs from -1.0 (full left) to 1.0 (full right)
-	Movie m = [qtm quickTimeMovie];
+	Movie m = [self quickTimeMovie];
 	SetMovieAudioBalance(m, balance, 0);	
 }
 
 
-+ (void)setMovieToMaxLoadedAndPlay: (QTMovie *) qtm
+- (void)setMovieToMaxLoadedAndPlay
 {
-	Movie theMovie = [qtm quickTimeMovie];
+	Movie theMovie = [self quickTimeMovie];
 	TimeValue loadedTime = -1;
 	
 	GetMaxLoadedTimeInMovie(theMovie, &loadedTime);
 	TimeScale scale = GetMovieTimeScale(theMovie);
 	TimeValue newTime = loadedTime - (2 * scale);
 	SetMovieTimeValue(theMovie, newTime);
-	[qtm play];
+	[self play];
 }
 
-+ (void)setupMeteringOnMovie: (QTMovie *) qtm
+- (void)setupAudioMetering
 {
-	Movie theMovie = [qtm quickTimeMovie];
+	Movie theMovie = [self quickTimeMovie];
 	UInt32 numBands = 1;
 	SetMovieAudioFrequencyMeteringNumBands(theMovie, kQTAudioMeter_MonoMix, &numBands);
 }
 
-+ (Float32)getLevelForMovie: (QTMovie *) qtm
+- (Float32)getAudioLevel
 {
-	Movie theMovie = [qtm quickTimeMovie];
+	Movie theMovie = [self quickTimeMovie];
 	QTAudioFrequencyLevels *levels;
 	Float32 theLevel;
+	const int numChannels = 1;
+	const int numBands = 1;
 	
-	levels = malloc(offsetof(QTAudioFrequencyLevels, level[1]));
-	levels->numChannels = 1;
-	levels->numFrequencyBands = 1;
+	levels = malloc(offsetof(QTAudioFrequencyLevels, level[numChannels * numBands]));
+	levels->numChannels = numChannels;
+	levels->numFrequencyBands = numBands;
 	
 	GetMovieAudioFrequencyLevels(theMovie, kQTAudioMeter_MonoMix, levels);
 	theLevel = levels->level[0];
 	free(levels);
 	return theLevel;
 }
+
 @end

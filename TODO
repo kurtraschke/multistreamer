@@ -7,7 +7,6 @@
 	Set mute
 	Set balance
 	Set volume
-* QTHelper should be a subclass of QTMovie, ideally.
 * Add icon for application and documents.
 * Eventually, implement help.
 * Provide for scriptability, if it can be done.

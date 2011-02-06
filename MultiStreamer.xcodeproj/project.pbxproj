@@ -13,9 +13,9 @@
 		3BDA9A7C0F2FEC3B00FDB68C /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDA9A7B0F2FEC3B00FDB68C /* AppleScriptObjC.framework */; };
 		455A8A7512F311B500D6A905 /* Stream.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 455A8A7412F311B500D6A905 /* Stream.applescript */; };
 		455A8A9312F3140C00D6A905 /* ASSuperclass.m in Sources */ = {isa = PBXBuildFile; fileRef = 455A8A9212F3140C00D6A905 /* ASSuperclass.m */; };
+		4575F6B412FE292500822963 /* MyQTMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 4575F6B312FE292500822963 /* MyQTMovie.m */; };
 		458D291C12F752050010933D /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458D28F712F752050010933D /* QuickTime.framework */; };
 		458D293E12F7520F0010933D /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458D291D12F7520F0010933D /* QTKit.framework */; };
-		458D295912F755150010933D /* QTHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 458D295812F755150010933D /* QTHelper.m */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -39,10 +39,10 @@
 		455A8A7B12F3134600D6A905 /* ASSheetProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSheetProtocol.h; sourceTree = "<group>"; };
 		455A8A9112F3140C00D6A905 /* ASSuperclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSuperclass.h; sourceTree = "<group>"; };
 		455A8A9212F3140C00D6A905 /* ASSuperclass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSuperclass.m; sourceTree = "<group>"; };
+		4575F6B212FE292500822963 /* MyQTMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQTMovie.h; sourceTree = "<group>"; };
+		4575F6B312FE292500822963 /* MyQTMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQTMovie.m; sourceTree = "<group>"; };
 		458D28F712F752050010933D /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
 		458D291D12F7520F0010933D /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
-		458D295712F755150010933D /* QTHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTHelper.h; sourceTree = "<group>"; };
-		458D295812F755150010933D /* QTHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTHelper.m; sourceTree = "<group>"; };
 		45AC87A712F3A18E0037A787 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* MultiStreamer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MultiStreamer-Info.plist"; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* MultiStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,9 +108,9 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				458D295712F755150010933D /* QTHelper.h */,
-				458D295812F755150010933D /* QTHelper.m */,
 				455A8A9112F3140C00D6A905 /* ASSuperclass.h */,
+				4575F6B212FE292500822963 /* MyQTMovie.h */,
+				4575F6B312FE292500822963 /* MyQTMovie.m */,
 				455A8A9212F3140C00D6A905 /* ASSuperclass.m */,
 				455A8A7B12F3134600D6A905 /* ASSheetProtocol.h */,
 				455A8A7412F311B500D6A905 /* Stream.applescript */,
@@ -217,7 +217,7 @@
 				3BC3FB1C0ED20FE6004AC079 /* MyDocument.applescript in Sources */,
 				455A8A7512F311B500D6A905 /* Stream.applescript in Sources */,
 				455A8A9312F3140C00D6A905 /* ASSuperclass.m in Sources */,
-				458D295912F755150010933D /* QTHelper.m in Sources */,
+				4575F6B412FE292500822963 /* MyQTMovie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
