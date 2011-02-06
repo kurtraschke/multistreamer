@@ -1,5 +1,5 @@
-* Implement preferences panel and preference option for autoplay
-* Remove extraneous menu items (mostly done now)
+* Remove extraneous menu items (mostly done now).
+* Wire up copy/paste and/or drag-and-drop for moving streams between stream lists.
 * Implement undo/redo for operations:
 	Add stream
 	Remove stream
@@ -8,6 +8,7 @@
 	Set balance
 	Set volume
 * QTHelper should be a subclass of QTMovie, ideally.
+* Add icon for application and documents.
 * Eventually, implement help.
 * Provide for scriptability, if it can be done.
 * Figure out some way to signal to the user if a stream drops out?
