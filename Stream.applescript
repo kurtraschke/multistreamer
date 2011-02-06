@@ -10,6 +10,8 @@ property QTMovie : class "QTMovie"
 property NSNotificationCenter : class "NSNotificationCenter"
 property QTHelper : class "QTHelper"
 property NSTimer : class "NSTimer"
+property NSUserDefaults : class "NSUserDefaults"
+property NSNumber : class "NSNumber"
 
 script Stream
 	property parent : class "NSObject"
@@ -55,6 +57,11 @@ script Stream
 		if loadState is equal to targetLoadState then
 			set my isPlayable to 1
 			tell my notifCenter to removeObserver_name_object_(me, "QTMovieLoadStateDidChangeNotification", my theMovie)
+			
+			set autoPlay to current application's NSUserDefaults's standardUserDefaults's objectForKey_("autoPlay")
+			if autoPlay's intValue() is 1 then
+				tell me to setIsPlaying_(current application's NSNumber's numberWithBool_(1))
+			end if
 		end if
 	end loadStateChanged_
 	
@@ -68,7 +75,6 @@ script Stream
 	end setIsPlaying_
 	
 	on startStream()
-		
 		if my isPlayable is equal to 1 then
 			current application's QTHelper's setMovieToMaxLoadedAndPlay_(my theMovie)
 			--tell my theMovie to |play|()
