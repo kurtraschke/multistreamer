@@ -10,6 +10,20 @@
 
 
 @implementation MyQTMovie
+
+- initWithURL:(NSURL *)url error:(NSError **)errorPtr {
+    self = [super initWithURL: url error:errorPtr];
+    if (self) {
+		averageDepth = 20;
+		NSNumber *nums[averageDepth];
+		for (int i=0;i<averageDepth;i++) {
+			nums[i] = [NSNumber numberWithFloat:0.0];
+		}
+        volumeLevels = [[CHCircularBufferQueue alloc] initWithArray: [NSArray arrayWithObjects:nums count:averageDepth]];
+    }
+    return self;
+}
+
 - (void)setBalance: (Float32) balance
 {
 	//Balance runs from -1.0 (full left) to 1.0 (full right)
@@ -51,8 +65,27 @@
 	
 	GetMovieAudioFrequencyLevels(theMovie, kQTAudioMeter_MonoMix, levels);
 	theLevel = levels->level[0];
+	
+	[volumeLevels addObject:[NSNumber numberWithFloat:theLevel]];
+	[volumeLevels removeFirstObject];
+	
 	free(levels);
 	return theLevel;
+}
+
+- (Float32)getAudioAverage
+{	
+	Float32 theMax = 0.0;
+	NSEnumerator *avgEnumerator = [volumeLevels objectEnumerator];
+	NSNumber *i;
+	while (i = [avgEnumerator nextObject])
+	{
+		Float32 temp = [i floatValue];
+		if	(temp > theMax) {
+			theMax = temp;
+		}
+	}
+	return theMax;
 }
 
 @end

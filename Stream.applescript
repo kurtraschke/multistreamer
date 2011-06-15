@@ -15,7 +15,7 @@ property NSNumber : class "NSNumber"
 script Stream
 	property parent : class "NSObject"
 	
-	
+	property theDocument : missing value
 	property streamName : missing value
 	property streamURL : missing value
 	property streamBalance : 0.0
@@ -23,16 +23,20 @@ script Stream
 	property isPlaying : 0
 	property isMuted : 0
 	property isPlayable : 0
+	property duckingCount : 0
 	
 	property audioLevel : 0.0
 	
+	property lastAverage : 0.0
+	
 	property theMovie : missing value
+	property averageLevel : missing value
 	
 	property notifCenter : missing value
 	property updateLevelTimer : missing value
 	
-	
-	on setupStream__(theURL, theName)
+	on setupStream___(theURL, theName, theDocument)
+		set my theDocument to theDocument
 		set my streamName to theName
 		set my streamURL to theURL's absoluteString()
 		tell current application's MyQTMovie to set {theMovie, theError} to movieWithURL_error_(theURL, reference)
@@ -48,7 +52,7 @@ script Stream
 			tell my notifCenter to addObserver_selector_name_object_(me, "loadStateChanged:", "QTMovieLoadStateDidChangeNotification", my theMovie)
 			return true
 		end if
-	end setupStream__
+	end setupStream___
 	
 	on loadStateChanged_(notification)
 		set loadState to my theMovie's attributeForKey_("QTMovieLoadStateAttribute") as integer
@@ -82,7 +86,23 @@ script Stream
 	end startStream
 	
 	on updateLevel_(theTimer)
-		set my audioLevel to (theMovie's getAudioLevel() as real)
+		set theLevel to theMovie's getAudioLevel() as real
+		set theAverage to theMovie's getAudioAverage() as real
+		
+		--log " " & theAverage & " " & lastAverage
+		
+		set theThreshold to 0.1
+		
+		if theAverage is greater than or equal to theThreshold and lastAverage is less than theThreshold then
+			--stream has started talking
+			tell theDocument to setStreamTalking_(me)
+		else if lastAverage is greater than or equal to theThreshold and theAverage is less than theThreshold then
+			--stream has stopped talking
+			tell theDocument to setStreamDoneTalking_(me)
+		end if
+		
+		set my lastAverage to theAverage
+		set my audioLevel to theLevel
 	end updateLevel_
 	
 	on setAudioLevel_(theLevel)
@@ -112,4 +132,25 @@ script Stream
 		set streamVolume to theVolume
 		tell my theMovie to setVolume_(my streamVolume as real)
 	end setStreamVolume_
+	
+	on incrementDuckingCount()
+		--log "Incrementing ducking " & my streamName & " " & my duckingCount
+		set my duckingCount to (my duckingCount) + 1
+		if my duckingCount is equal to 1 then
+			set newVolume to (my streamVolume as real) * 0.25
+			tell me to set my streamVolume to newVolume
+			tell me to setStreamVolume_(newVolume)
+		end if
+	end incrementDuckingCount
+	
+	on decrementDuckingCount()
+		--log "Decrementing ducking " & my streamName & " " & my duckingCount
+		set my duckingCount to (my duckingCount) - 1
+		if my duckingCount is equal to 0 then
+			set newVolume to (my streamVolume as real) / 0.25
+			tell me to set my streamVolume to newVolume
+			tell me to setStreamVolume_(newVolume)
+		end if
+	end decrementDuckingCount
+	
 end script

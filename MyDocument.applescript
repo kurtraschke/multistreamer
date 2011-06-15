@@ -27,6 +27,10 @@ script MyDocument
 	property nameFieldValue : ""
 	property addressFieldValue : ""
 	
+	property autoPlay : missing value
+	
+	property talkingStream : missing value
+	
 	on init()
 		continue init()
 		
@@ -91,7 +95,8 @@ script MyDocument
 			set newStream to current application's Stream's alloc()'s init()
 			set theURL to |NSURL|'s URLWithString_(theStream's streamURL)
 			
-			newStream's setupStream__(theURL, theStream's streamName)
+			newStream's setupStream___(theURL, theStream's streamName, me)
+			--FIXME: check return value here
 			set newStream's streamBalance to theStream's streamBalance
 			set newStream's streamVolume to theStream's streamVolume
 			my theArrayController's addObject_(newStream)
@@ -165,7 +170,7 @@ script MyDocument
 		addressField's setStringValue_("")
 		
 		set newStream to current application's Stream's alloc()'s init()
-		set returnValue to newStream's setupStream__(theURL, theName) as integer
+		set returnValue to newStream's setupStream___(theURL, theName, me) as integer
 		if returnValue is 1 then
 			theArrayController's addObject_(newStream)
 		end if
@@ -201,7 +206,7 @@ script MyDocument
 	end copyStreamURL_
 	
 	on validateMenuItem_(menuItem)
-		if menuItem's |tag| as integer is equal to 1 then
+		if menuItem's |action|() as string is equal to "copyStreamURL:" then
 			if theArrayController's selectionIndex as integer is not equal to current application's NSNotFound as integer then
 				return 1
 			else
@@ -211,5 +216,30 @@ script MyDocument
 			return 1
 		end if
 	end validateMenuItem_
+	
+	
+	on setStreamTalking_(theStream)
+		if talkingStream is missing value then
+			set talkingStream to theStream's streamName
+			repeat with aStream in theArrayController's arrangedObjects()
+				if aStream's streamName is not theStream's streamName then
+					tell aStream to incrementDuckingCount()
+				end if
+			end repeat
+		end if
+	end setStreamTalking_
+	
+	
+	on setStreamDoneTalking_(theStream)
+		if theStream's streamName is talkingStream then
+			set talkingStream to missing value
+			repeat with aStream in theArrayController's arrangedObjects()
+				if aStream's streamName is not theStream's streamName then
+					tell aStream to decrementDuckingCount()
+				end if
+			end repeat
+		end if
+	end setStreamDoneTalking_
+	
 	
 end script

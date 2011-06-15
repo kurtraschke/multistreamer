@@ -11,6 +11,7 @@
 		1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD582A0DA1D0D100B32029 /* MainMenu.xib */; };
 		3BC3FB1C0ED20FE6004AC079 /* MyDocument.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 3BC3FB1B0ED20D76004AC079 /* MyDocument.applescript */; };
 		3BDA9A7C0F2FEC3B00FDB68C /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDA9A7B0F2FEC3B00FDB68C /* AppleScriptObjC.framework */; };
+		45487F6013A6E03A0076EC04 /* CHDataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45487F5F13A6E03A0076EC04 /* CHDataStructures.framework */; };
 		455A8A7512F311B500D6A905 /* Stream.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 455A8A7412F311B500D6A905 /* Stream.applescript */; };
 		455A8A9312F3140C00D6A905 /* ASSuperclass.m in Sources */ = {isa = PBXBuildFile; fileRef = 455A8A9212F3140C00D6A905 /* ASSuperclass.m */; };
 		4575F6B412FE292500822963 /* MyQTMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 4575F6B312FE292500822963 /* MyQTMovie.m */; };
@@ -35,6 +36,7 @@
 		32DBCF750370BD2300C91783 /* MultiStreamer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiStreamer_Prefix.pch; sourceTree = "<group>"; };
 		3BC3FB1B0ED20D76004AC079 /* MyDocument.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = MyDocument.applescript; sourceTree = "<group>"; };
 		3BDA9A7B0F2FEC3B00FDB68C /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = /System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = "<absolute>"; };
+		45487F5F13A6E03A0076EC04 /* CHDataStructures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CHDataStructures.framework; sourceTree = "<group>"; };
 		455A8A7412F311B500D6A905 /* Stream.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = Stream.applescript; sourceTree = "<group>"; };
 		455A8A7B12F3134600D6A905 /* ASSheetProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSheetProtocol.h; sourceTree = "<group>"; };
 		455A8A9112F3140C00D6A905 /* ASSuperclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSuperclass.h; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				3BDA9A7C0F2FEC3B00FDB68C /* AppleScriptObjC.framework in Frameworks */,
 				458D291C12F752050010933D /* QuickTime.framework in Frameworks */,
 				458D293E12F7520F0010933D /* QTKit.framework in Frameworks */,
+				45487F6013A6E03A0076EC04 /* CHDataStructures.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +69,7 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45487F5F13A6E03A0076EC04 /* CHDataStructures.framework */,
 				458D291D12F7520F0010933D /* QTKit.framework */,
 				458D28F712F752050010933D /* QuickTime.framework */,
 				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
@@ -265,6 +269,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUILD_STYLE = Debug;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = required;
@@ -284,6 +292,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUILD_STYLE = Release;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
