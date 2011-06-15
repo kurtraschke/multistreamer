@@ -2,17 +2,17 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">10J567</string>
-		<string key="IBDocument.InterfaceBuilderVersion">823</string>
+		<string key="IBDocument.SystemVersion">10J869</string>
+		<string key="IBDocument.InterfaceBuilderVersion">851</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
-		<string key="IBDocument.HIToolboxVersion">462.00</string>
+		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">823</string>
+			<string key="NS.object.0">851</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100078"/>
+			<integer value="5"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -508,7 +508,7 @@
 														<reference key="NSControlView" ref="507732690"/>
 														<double key="NSMaxValue">2</double>
 														<double key="NSMinValue">0.0</double>
-														<double key="NSValue">1</double>
+														<double key="NSValue">0.88888888888888884</double>
 														<double key="NSAltIncValue">0.0</double>
 														<int key="NSNumberOfTickMarks">10</int>
 														<int key="NSTickMarkPosition">0</int>
@@ -1584,7 +1584,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{266, 533}, {616, 0}}</string>
+					<string>{{266, 534}, {616, 0}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1630,7 +1630,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100158</int>
+			<int key="maxID">100162</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1655,6 +1655,8 @@
 							<string>copyStreamURL:</string>
 							<string>deleteStream:</string>
 							<string>playAllStreams:</string>
+							<string>setStreamDoneTalking:</string>
+							<string>setStreamTalking:</string>
 							<string>showAddStreamSheet:</string>
 							<string>stopAllStreams:</string>
 							<string>validateMenuItem:</string>
@@ -1662,6 +1664,8 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1682,6 +1686,8 @@
 							<string>copyStreamURL:</string>
 							<string>deleteStream:</string>
 							<string>playAllStreams:</string>
+							<string>setStreamDoneTalking:</string>
+							<string>setStreamTalking:</string>
 							<string>showAddStreamSheet:</string>
 							<string>stopAllStreams:</string>
 							<string>validateMenuItem:</string>
@@ -1710,6 +1716,14 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
+								<string key="name">setStreamDoneTalking:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">setStreamTalking:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
 								<string key="name">showAddStreamSheet:</string>
 								<string key="candidateClassName">id</string>
 							</object>
@@ -1733,14 +1747,18 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addStreamSheet</string>
 							<string>addressField</string>
+							<string>autoPlay</string>
 							<string>mainWindow</string>
 							<string>nameField</string>
 							<string>savedData</string>
+							<string>talkingStream</string>
 							<string>theArrayController</string>
 							<string>theTableView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1756,9 +1774,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addStreamSheet</string>
 							<string>addressField</string>
+							<string>autoPlay</string>
 							<string>mainWindow</string>
 							<string>nameField</string>
 							<string>savedData</string>
+							<string>talkingStream</string>
 							<string>theArrayController</string>
 							<string>theTableView</string>
 						</object>
@@ -1773,6 +1793,10 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">autoPlay</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">mainWindow</string>
 								<string key="candidateClassName">id</string>
 							</object>
@@ -1782,6 +1806,10 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">savedData</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">talkingStream</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">

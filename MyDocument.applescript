@@ -217,13 +217,12 @@ script MyDocument
 		end if
 	end validateMenuItem_
 	
-	
 	on setStreamTalking_(theStream)
 		if talkingStream is missing value then
 			set talkingStream to theStream's streamName
 			repeat with aStream in theArrayController's arrangedObjects()
 				if aStream's streamName is not theStream's streamName then
-					tell aStream to incrementDuckingCount()
+					tell aStream to startDucking()
 				end if
 			end repeat
 		end if
@@ -235,7 +234,7 @@ script MyDocument
 			set talkingStream to missing value
 			repeat with aStream in theArrayController's arrangedObjects()
 				if aStream's streamName is not theStream's streamName then
-					tell aStream to decrementDuckingCount()
+					tell aStream to stopDucking()
 				end if
 			end repeat
 		end if

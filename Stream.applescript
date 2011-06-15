@@ -23,14 +23,15 @@ script Stream
 	property isPlaying : 0
 	property isMuted : 0
 	property isPlayable : 0
-	property duckingCount : 0
+	
+	property duckingActive : false
+	property wasMuted : missing value
+	property oldVolume : missing value
 	
 	property audioLevel : 0.0
-	
 	property lastAverage : 0.0
 	
 	property theMovie : missing value
-	property averageLevel : missing value
 	
 	property notifCenter : missing value
 	property updateLevelTimer : missing value
@@ -89,9 +90,7 @@ script Stream
 		set theLevel to theMovie's getAudioLevel() as real
 		set theAverage to theMovie's getAudioAverage() as real
 		
-		--log " " & theAverage & " " & lastAverage
-		
-		set theThreshold to 0.1
+		set theThreshold to (current application's NSUserDefaults's standardUserDefaults's objectForKey_("activityThreshold")'s floatValue())
 		
 		if theAverage is greater than or equal to theThreshold and lastAverage is less than theThreshold then
 			--stream has started talking
@@ -106,7 +105,7 @@ script Stream
 	end updateLevel_
 	
 	on setAudioLevel_(theLevel)
-		set audioLevel to theLevel
+		set my audioLevel to theLevel
 	end setAudioLevel_
 	
 	on stopStream()
@@ -119,38 +118,49 @@ script Stream
 	end closeStream
 	
 	on setIsMuted_(mutedState)
-		set isMuted to mutedState
+		set my isMuted to mutedState
 		tell my theMovie to setMuted_(my isMuted)
 	end setIsMuted_
 	
 	on setStreamBalance_(theBalance)
-		set streamBalance to theBalance
+		set my streamBalance to theBalance
 		tell my theMovie to setBalance_(my streamBalance as real)
 	end setStreamBalance_
 	
 	on setStreamVolume_(theVolume)
-		set streamVolume to theVolume
+		set my streamVolume to theVolume
 		tell my theMovie to setVolume_(my streamVolume as real)
 	end setStreamVolume_
 	
-	on incrementDuckingCount()
-		--log "Incrementing ducking " & my streamName & " " & my duckingCount
-		set my duckingCount to (my duckingCount) + 1
-		if my duckingCount is equal to 1 then
-			set newVolume to (my streamVolume as real) * 0.25
-			tell me to set my streamVolume to newVolume
-			tell me to setStreamVolume_(newVolume)
+	on startDucking()
+		if duckingActive is false then
+			set duckingMode to current application's NSUserDefaults's standardUserDefaults's objectForKey_("streamActiveMode")'s intValue()
+			
+			if duckingMode is 1 then
+				--mute
+				set wasMuted to my isMuted
+				tell me to setIsMuted_(1)
+			else if duckingMode is 2 then
+				set oldVolume to my streamVolume
+				set duckingFactor to (current application's NSUserDefaults's standardUserDefaults's objectForKey_("duckingLevel")'s intValue()) / 100
+				set newVolume to (my streamVolume as real) * duckingFactor
+				tell me to setStreamVolume_(newVolume)
+			end if
+			set duckingActive to true
 		end if
-	end incrementDuckingCount
+	end startDucking
 	
-	on decrementDuckingCount()
-		--log "Decrementing ducking " & my streamName & " " & my duckingCount
-		set my duckingCount to (my duckingCount) - 1
-		if my duckingCount is equal to 0 then
-			set newVolume to (my streamVolume as real) / 0.25
-			tell me to set my streamVolume to newVolume
-			tell me to setStreamVolume_(newVolume)
+	on stopDucking()
+		if duckingActive is true then
+			set duckingMode to current application's NSUserDefaults's standardUserDefaults's objectForKey_("streamActiveMode")'s intValue()
+			if duckingMode is 1 then
+				--restore muting
+				tell me to setIsMuted_(my wasMuted)
+			else if duckingMode is 2 then
+				--restore volume
+				tell me to setStreamVolume_(oldVolume)
+			end if
+			set duckingActive to false
 		end if
-	end decrementDuckingCount
-	
+	end stopDucking
 end script
