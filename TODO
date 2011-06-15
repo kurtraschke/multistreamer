@@ -11,3 +11,4 @@
 * Eventually, implement help.
 * Provide for scriptability, if it can be done.
 * Figure out some way to signal to the user if a stream drops out?
+* Closing a window doesn't actually seem to stop the streams in that window.  Fix.
