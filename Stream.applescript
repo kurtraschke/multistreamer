@@ -114,6 +114,7 @@ script Stream
 	
 	on closeStream()
 		tell me to stopStream()
+		tell my theMovie to invalidate()
 	end closeStream
 	
 	on setIsMuted_(mutedState)

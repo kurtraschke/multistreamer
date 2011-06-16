@@ -33,4 +33,16 @@
     return [fileAttributes autorelease];
 }
 
+- (void)canCloseDocumentWithDelegate:(id)delegate
+				 shouldCloseSelector:(SEL)shouldCloseSelector
+						 contextInfo:(void *)contextInfo
+{
+	[self closeAllStreams];
+	
+	[super canCloseDocumentWithDelegate:delegate 
+					shouldCloseSelector:shouldCloseSelector 
+							contextInfo:contextInfo];
+	
+}
+
 @end

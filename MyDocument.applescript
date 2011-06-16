@@ -238,5 +238,9 @@ script MyDocument
 		end if
 	end setStreamDoneTalking_
 	
-	
+	on closeAllStreams()
+		repeat with theStream in theArrayController's arrangedObjects()
+			tell theStream to closeStream()
+		end repeat
+	end closeAllStreams
 end script

@@ -48,6 +48,7 @@
 		458D291D12F7520F0010933D /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
 		45AC87A712F3A18E0037A787 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		45DFD4B113A9A22F00E9FA16 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		45EA6F8013A9A61400905395 /* CloseStreams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloseStreams.h; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* MultiStreamer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MultiStreamer-Info.plist"; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* MultiStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				455A8A9112F3140C00D6A905 /* ASSuperclass.h */,
+				45EA6F8013A9A61400905395 /* CloseStreams.h */,
 				4575F6B212FE292500822963 /* MyQTMovie.h */,
 				4575F6B312FE292500822963 /* MyQTMovie.m */,
 				455A8A9212F3140C00D6A905 /* ASSuperclass.m */,

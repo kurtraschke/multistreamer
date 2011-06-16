@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ASSheetProtocol.h"
+#import "CloseStreams.h"
 
-@interface ASSuperclass : NSDocument  <ASSheetProtocol>  {
+@interface ASSuperclass : NSDocument  <ASSheetProtocol, CloseStreams>  {
 
 }
 
@@ -18,4 +19,9 @@
 							forSaveOperation:(NSSaveOperationType)saveOperation
 						 originalContentsURL:(NSURL *)absoluteOriginalContentsURL
 									   error:(NSError **)outError;
+
+- (void)canCloseDocumentWithDelegate:(id)delegate
+				 shouldCloseSelector:(SEL)shouldCloseSelector
+						 contextInfo:(void *)contextInfo;
+
 @end
