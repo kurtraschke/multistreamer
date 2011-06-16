@@ -39,7 +39,6 @@
 		3BDA9A7B0F2FEC3B00FDB68C /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = /System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = "<absolute>"; };
 		45487F5F13A6E03A0076EC04 /* CHDataStructures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CHDataStructures.framework; sourceTree = "<group>"; };
 		455A8A7412F311B500D6A905 /* Stream.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = Stream.applescript; sourceTree = "<group>"; };
-		455A8A7B12F3134600D6A905 /* ASSheetProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSheetProtocol.h; sourceTree = "<group>"; };
 		455A8A9112F3140C00D6A905 /* ASSuperclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSuperclass.h; sourceTree = "<group>"; };
 		455A8A9212F3140C00D6A905 /* ASSuperclass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSuperclass.m; sourceTree = "<group>"; };
 		4575F6B212FE292500822963 /* MyQTMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQTMovie.h; sourceTree = "<group>"; };
@@ -121,7 +120,6 @@
 				4575F6B212FE292500822963 /* MyQTMovie.h */,
 				4575F6B312FE292500822963 /* MyQTMovie.m */,
 				455A8A9212F3140C00D6A905 /* ASSuperclass.m */,
-				455A8A7B12F3134600D6A905 /* ASSheetProtocol.h */,
 				455A8A7412F311B500D6A905 /* Stream.applescript */,
 				3BC3FB1B0ED20D76004AC079 /* MyDocument.applescript */,
 			);

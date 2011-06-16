@@ -7,10 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ASSheetProtocol.h"
 #import "CloseStreams.h"
 
-@interface ASSuperclass : NSDocument  <ASSheetProtocol, CloseStreams>  {
+@interface ASSuperclass : NSDocument <CloseStreams>  {
 
 }
 
