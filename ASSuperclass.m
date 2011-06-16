@@ -3,7 +3,7 @@
 //  MultiStreamer
 //
 //  Created by Kurt Raschke on 1/28/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Kurt Raschke. See the file LICENSE.txt for license.
 //
 
 #import "ASSuperclass.h"

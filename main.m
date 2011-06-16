@@ -3,7 +3,7 @@
 //  MultiStreamer
 //
 //  Created by Kurt Raschke on 1/28/11.
-//  Copyright __MyCompanyName__ 2011. All rights reserved.
+//  Copyright Kurt Raschke 2011. See the file LICENSE.txt for license.
 //
 
 #import <Cocoa/Cocoa.h>
